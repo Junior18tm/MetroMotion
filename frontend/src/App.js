@@ -1,4 +1,5 @@
 import React from "react";
+import MbtaAlertsPage from "./components/pages/mbtaAlerts";
 // We use Route in order to define the different routes of our application
 import { Route, Routes } from "react-router-dom";
 
@@ -31,6 +32,7 @@ const App = () => {
           <Route exact path="/home" element={<HomePage />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/mbtaAlerts" element={<MbtaAlertsPage />} />
           <Route path="/privateUserProfile" element={<PrivateUserProfile />} />
         </Routes>
       </UserContext.Provider>
