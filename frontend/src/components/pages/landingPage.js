@@ -17,7 +17,7 @@ const Landingpage = () => {
         position: 'absolute', top: '100px', left: '500px', 
         width: '25rem' }} className="mx-2 my-2">
         <Card.Body>
-          <Card.Title>MetroMotion</Card.Title>
+          <Card.Title>MetroMotionjjd</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">MBTA Scheduling App</Card.Subtitle>
           <Card.Text>
           </Card.Text>
