@@ -23,7 +23,7 @@ export default function Navbar() {
     <ReactNavbar bg="dark" variant="dark">
     <Container>
       <Nav className="me-auto">
-        <Nav.Link href="/">Start</Nav.Link>
+        <Nav.Link href="/home" style={{ color: 'Purple', fontSize: '17px' }}>MetroMotion</Nav.Link>
         <Nav.Link href="/home">Home</Nav.Link>
         <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
         <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
