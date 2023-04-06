@@ -23,7 +23,7 @@ export default function Navbar() {
   // it seems.
   return (
     <ReactNavbar bg="dark" variant="dark" expand="lg">
-   <Container>
+   <Container> 
      <ReactNavbar.Brand href ="/"> <img src = './MetroMotion.png' height = '100' alt= '' loading= 'lazy' /> </ReactNavbar.Brand> 
       <Nav>
        <Nav.Link href="/home">Home</Nav.Link>
