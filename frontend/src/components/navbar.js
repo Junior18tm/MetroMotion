@@ -3,6 +3,8 @@ import getUserInfo from '../utilities/decodeJwt';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import ReactNavbar from 'react-bootstrap/Navbar';
+import './pages/NavBar.css';
+
 
 
 // Here, we display our Navbar
@@ -20,17 +22,22 @@ export default function Navbar() {
   // we have an issue with getUserInfo() returning null after a few minutes
   // it seems.
   return (
-    <ReactNavbar bg="dark" variant="dark">
-    <Container>
-      <Nav className="me-auto">
-        <Nav.Link href="/home" style={{ color: 'Purple', fontSize: '17px' }}>MetroMotion</Nav.Link>
-        <Nav.Link href="/home">Home</Nav.Link>
-        <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
-        <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
-        
-      </Nav>
-    </Container>
-  </ReactNavbar>
+    <ReactNavbar bg="dark" variant="dark" expand="lg">
+   <Container>
+     <ReactNavbar.Brand href ="/"> <img src = './MetroMotion.png' height = '100' alt= '' loading= 'lazy' /> </ReactNavbar.Brand> 
+      <Nav>
+       <Nav.Link href="/home">Home</Nav.Link>
+       <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
+       <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
+       </Nav>
+      
+       <Nav.Link href="/login"><button class = "nav-button">Get started</button>
+       </Nav.Link>
+     
+   </Container>
+ </ReactNavbar>
+
+
 
   );
 }
