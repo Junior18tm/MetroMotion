@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import getUserInfo from '../../utilities/decodeJwt'
+import './homePage.css';
 const HomePage = () => {
     const [user, setUser] = useState({})
     const navigate = useNavigate()
     const handleClick = (e) => {
-        e.preventDefault();
-        localStorage.removeItem('accessToken')
-        return navigate('/')
+        return navigate(e)
     }
 
     useEffect(() => {
@@ -17,34 +16,28 @@ const HomePage = () => {
 
     if (!user) return (
         <div><h4>Log in to view this page.</h4></div>)
-    const { id, email, username, password, favline } = user
+    const { username } = user
     return (
         <>
             <div>
                 <h3>
                     Welcome
-                    <span className='username'> @{username}</span>
-                </h3>
-                <h3>
-                    Your userId in mongo db is
-                    <span className='userId'> {id}</span>
-                </h3>
-                <h3>
-                    Your registered email is
-                    <span className='email'> {email}</span>
-                </h3>
-                <h3>
-                    Your password is
-                    <span className='password'> {password} ( hashed )</span>
-                </h3>
-                <h3>
-                    Your favorite line is
-                    <span className='favline'> {favline}</span>
+                    <span className='username'> {username}</span>
                 </h3>
             </div>
-            <button onClick={(e) => handleClick(e)}>
-                Log Out
-            </button>
+            
+            <div className="schedule-windows-container">
+     
+                <div className="schedule-window" onClick={() => handleClick('/trainSchedule')}>
+                <h2>Train Schedules</h2>
+                </div>
+
+                <div className="schedule-window" onClick={() => handleClick('/mbtaAlerts')}>
+                <h2>Bus Schedules</h2>
+                </div>
+    
+            </div>
+    
         </>
     )
 }

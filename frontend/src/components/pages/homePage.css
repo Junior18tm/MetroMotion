@@ -1,0 +1,42 @@
+  
+.schedule-windows-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 80vh;
+    
+  }
+
+  .schedule-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 50%;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  .schedule-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url('/public/Mbtrain.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+  }
+  
+
+  .schedule-window:hover {
+    transform: scale(1.1);
+  }
+  
+  .schedule-window h2 {
+    font-size: 2rem;
+    margin: 0;
+  }

@@ -1,0 +1,69 @@
+.train-schedule-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+  }
+  
+  .train-schedule-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  
+  .red-line-box {
+    background-color: #da291c;
+  }
+  .red-line-box:hover{
+    background-color: #333;
+    color:#da291c
+  }
+  
+  .orange-line-box {
+    background-color: #ff8c00;
+  }
+  .orange-line-box:hover{
+    background-color: #333;
+    color:#ff8c00
+  }
+  
+  .green-line-box {
+    background-color: #00843d;
+  }
+  .green-line-box:hover{
+    background-color: #333;
+    color:#00843d
+  }
+  
+  .blue-line-box {
+    background-color: #003da5;
+  }
+  .blue-line-box:hover{
+    background-color: #333;
+    color:#003da5
+  }
+  
+  .mattapan-trolley-box {
+    background-color: #6f2da8;
+  }
+  .mattapan-trolley-box:hover{
+    background-color: #333;
+    color:#6f2da8
+  }
+  body {
+    height: 100vh;
+  }
+  #body {
+    background-image: url('/public/Mbtrain.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-bottom: 550px; 
+  }
+  

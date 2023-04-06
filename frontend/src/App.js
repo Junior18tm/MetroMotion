@@ -12,6 +12,8 @@ import Signup from "./components/pages/registerPage";
 import PrivateUserProfile from "./components/pages/privateUserProfilePage";
 import { createContext, useState, useEffect } from "react";
 import getUserInfo from "./utilities/decodeJwt";
+import TrainLines from "./components/pages/trainLines";
+import RedLine from "./components/pages/trainRed";
 
 export const UserContext = createContext();
 //test change
@@ -34,6 +36,8 @@ const App = () => {
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/mbtaAlerts" element={<MbtaAlertsPage />} />
           <Route path="/privateUserProfile" element={<PrivateUserProfile />} />
+          <Route exact path="/trainSchedule" element={<TrainLines />} />
+          <Route exact path="/red-line" element={<RedLine/>} />
         </Routes>
       </UserContext.Provider>
     </>

@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 const Landingpage = () => {
     
     return (
+  <>
       <div style={{ backgroundImage:`url(/Mbtrain.png)`,backgroundRepeat:"no-repeat",backgroundSize:"contain", 
     height:1600,width:1600
     }}>
@@ -28,6 +29,7 @@ const Landingpage = () => {
       </Card>
 
       </div>
+  </>
     )
 }
 

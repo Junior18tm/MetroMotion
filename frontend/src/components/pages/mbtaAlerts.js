@@ -26,7 +26,7 @@ function Alerts() {
         outline
         color="success"
         className="mx-1 my-2"
-        style={{ width: "30rem" }}
+        style={{ width: "31rem" }}
       >
         <Card.Body>
         <Card.Title>Alert</Card.Title>
