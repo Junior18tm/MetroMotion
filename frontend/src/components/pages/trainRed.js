@@ -3,21 +3,21 @@ import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 
 function RedLine() {
-  const [predictions, setPredictions] = useState([]);
+  const [schedule, setSchedules] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       const result = await axios(
-        'https://api-v3.mbta.com/predictions?filter[route]=Red&include=stop',
+        'https://api-v3.mbta.com/schedules?filter[route]=Red&include=stop',
       );
-      setPredictions(result.data.data);
+      setSchedules(result.data.data);
     }
     fetchData();
   }, []);
 
   return (
     <div>
-      {predictions.map(prediction => (
+      {schedule.map(schedule => (
           <Card
           body
           outline
@@ -27,7 +27,7 @@ function RedLine() {
         >
           <Card.Body>
           <Card.Title>Depature Time</Card.Title>
-          <Card.Text>{prediction.attributes.departure_time}</Card.Text>
+          <Card.Text>{schedule.attributes.time}</Card.Text>
           </Card.Body>
         </Card>
       ))}
