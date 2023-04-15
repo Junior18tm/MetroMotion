@@ -21,16 +21,16 @@ export default function Navbar() {
   // if (!user) return null   - for now, let's show the bar even not logged in.
   // we have an issue with getUserInfo() returning null after a few minutes
   // it seems.
+  
   return (
     <ReactNavbar bg="dark" variant="dark" expand="lg">
    <Container> 
-     <ReactNavbar.Brand href ="/"> <img src = './MetroMotion.png' height = '100' alt= '' loading= 'lazy' /> </ReactNavbar.Brand> 
+     <ReactNavbar.Brand href ="/"> <img src = './MetroMotion2.png' height = '100' alt= '' loading= 'lazy' /> </ReactNavbar.Brand> 
       <Nav>
        <Nav.Link href="/home">Home</Nav.Link>
        <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
        <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
        </Nav>
-      
        <Nav.Link href="/login"><button class = "nav-button">Get started</button>
        </Nav.Link>
      

@@ -35,6 +35,10 @@ const HomePage = () => {
                 <div className="schedule-window" onClick={() => handleClick('/mbtaAlerts')}>
                 <h2>Bus Schedules</h2>
                 </div>
+               
+                <div className="schedule-window" onClick={() => handleClick('/trainSchedule')}>
+                <h2>My Favorites</h2>
+                </div>
     
             </div>
     
