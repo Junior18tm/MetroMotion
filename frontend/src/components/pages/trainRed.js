@@ -27,7 +27,7 @@ function RedLine() {
         >
           <Card.Body>
           <Card.Title>Depature Time</Card.Title>
-          <Card.Text>{schedule.attributes.time}</Card.Text>
+          <Card.Text>{schedule.attributes.departure_time}</Card.Text>
           </Card.Body>
         </Card>
       ))}
