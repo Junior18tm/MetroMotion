@@ -8,7 +8,7 @@ function RedLine() {
   useEffect(() => {
     async function fetchData() {
       const result = await axios(
-        'https://api-v3.mbta.com/schedules?filter[route]=Red&include=stop',
+        'https://api-v3.mbta.com/schedules?filter[route]=1&include=stop',
       );
       setSchedules(result.data.data);
     }

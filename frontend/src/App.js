@@ -14,6 +14,9 @@ import { createContext, useState, useEffect } from "react";
 import getUserInfo from "./utilities/decodeJwt";
 import TrainLines from "./components/pages/trainLines";
 import RedLine from "./components/pages/trainRed";
+import AddCommmentPage from "./components/pages/addCommentPage";
+import CommentList from "./components/pages/viewCommentsPage";
+import SchedulePage from "./components/pages/ScheduleList";
 
 export const UserContext = createContext();
 //test change
@@ -38,6 +41,9 @@ const App = () => {
           <Route path="/privateUserProfile" element={<PrivateUserProfile />} />
           <Route exact path="/trainSchedule" element={<TrainLines />} />
           <Route exact path="/red-line" element={<RedLine/>} />
+          <Route path="/addComment" element={<AddCommmentPage />} />
+          <Route path="/viewComments" element={<CommentList />} />
+          <Route path="/schedule" element={<SchedulePage />} />
         </Routes>
       </UserContext.Provider>
     </>

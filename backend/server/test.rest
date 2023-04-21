@@ -50,3 +50,14 @@ Content-Type: application/json
 
 ###
 POST  http://localhost:8081/user/deleteAll
+
+###
+POST http://localhost:8081/comment/editComment
+Content-Type: application/json 
+
+{
+   "_id":"643e3fdb579b41b6a62506e6",
+   "username":"junior18",
+   "stationName":"northstation",
+   "comment":"junior t."
+}
