@@ -2,36 +2,63 @@ import React, { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 
-function RedLine() {
-  const [schedule, setSchedules] = useState([]);
+function ScheduleDisplay() {
+  const [redLineSchedule, setRedLineSchedule] = useState([]);
+  const [orangeLineSchedule, setOrangeLineSchedule] = useState([]);
+  const [greenLineSchedule, setGreenLineSchedule] = useState([]);
+  const [blueLineSchedule, setBlueLineSchedule] = useState([]);
+  const [silverLineSchedule, setSilverLineSchedule] = useState([]);
+  const [purpleLineSchedule, setPurpleLineSchedule] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
+    async function fetchRedLineSchedule() {
       const result = await axios(
         'https://api-v3.mbta.com/schedules?filter[route]=1&include=stop',
       );
-      setSchedules(result.data.data);
+      setRedLineSchedule(result.data.data);
     }
-    fetchData();
+    fetchRedLineSchedule();
   }, []);
+
+  // Similar useEffect calls for other lines
 
   return (
     <div>
-      {schedule.map(schedule => (
-          <Card
-          body
-          outline
-          color="success"
-          className="mx-1 my-2"
-          style={{ width: "31rem" }}
-        >
+      <h1>MBTA Schedules</h1>
+      <h2>Red Line</h2>
+      {redLineSchedule.map((schedule) => (
+        <Card>
           <Card.Body>
-          <Card.Title>Depature Time</Card.Title>
-          <Card.Text>{schedule.attributes.departure_time}</Card.Text>
+            <Card.Title>{schedule.attributes.stop_headsign}</Card.Title>
+            <Card.Text>
+              Departing from {schedule.attributes.stop_headsign} at{' '}
+              {schedule.attributes.departure_time}
+            </Card.Text>
           </Card.Body>
         </Card>
       ))}
+
+      <h2>Orange Line</h2>
+      {orangeLineSchedule.map((schedule) => (
+        <Card>
+          <Card.Body>
+<<<<<<< HEAD
+            <Card.Title>{schedule.attributes.stop_headsign}</Card.Title>
+            <Card.Text>
+              Departing from {schedule.relationships.stop.data.id} at{' '}
+              {schedule.attributes.departure_time}
+            </Card.Text>
+=======
+          <Card.Title>Depature Time</Card.Title>
+          <Card.Text>{schedule.attributes.departure_time}</Card.Text>
+>>>>>>> d228801ecb772965046e2789dd4210dab8579a9b
+          </Card.Body>
+        </Card>
+      ))}
+
+      {/* Similar Card displays for other lines */}
     </div>
   );
 }
-export default RedLine
+
+export default ScheduleDisplay;

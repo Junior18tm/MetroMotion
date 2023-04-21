@@ -25,8 +25,6 @@ app.use('/user', getUserByIdRoute)
 app.use('/user', editUser)
 app.use('/user', deleteUser)
 app.use('/comment', getAllCommentsRoute)
-app.use('/comment', addCommentRoute)
-app.use('/comment', editComment)
 app.use('/rating', getAllRatings)
 
 app.listen(SERVER_PORT, (req, res) => {

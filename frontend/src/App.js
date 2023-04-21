@@ -14,9 +14,6 @@ import { createContext, useState, useEffect } from "react";
 import getUserInfo from "./utilities/decodeJwt";
 import TrainLines from "./components/pages/trainLines";
 import RedLine from "./components/pages/trainRed";
-import AddCommmentPage from "./components/pages/addCommentPage";
-import CommentList from "./components/pages/viewCommentsPage";
-import SchedulePage from "./components/pages/ScheduleList";
 
 export const UserContext = createContext();
 //test change

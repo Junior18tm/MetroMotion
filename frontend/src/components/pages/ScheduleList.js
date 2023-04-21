@@ -11,10 +11,11 @@ class ScheduleList extends React.Component{
 
     onSearchSubmit = async (term) => {
        
-        var stop_id = "https://api-v3.mbta.com/predictions?filter[stop]=".concat(term);
+       var stop_id = "https://api-v3.mbta.com/predictions?filter[stop]=".concat(term);
+      
         const response_prediction = await axios.get(stop_id, {});
 
-        var predictions = [];                                          //Object to hold all the predictions
+        var predictions = [];                                           //Object to hold all the predictions
         var count = Object.keys(response_prediction.data.data).length;
         var valid_prediction_count = 0;                                 //Keeping count of predictions
         for(var i =0; i < count; i++){
@@ -139,7 +140,7 @@ class ScheduleList extends React.Component{
         return <div className="ui container" style={{ marginTop: '10px'}}> 
 
                 <div class="ui divider"></div>
-                <div style={{ marginLeft: '80%'}} class="ui mini statistic">
+                <div style={{ marginLeft: '40%'}} class="ui mini statistic">
                     <div class="label">Time</div>
                     <div class="value">{this.state.curTime}</div>
                 </div>
