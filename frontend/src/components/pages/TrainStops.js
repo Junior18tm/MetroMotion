@@ -11,7 +11,7 @@ const TrainStops = () => {
     'red-line': 'Red',
     'orange-line': 'Orange',
     'blue-line': 'Blue',
-    'green-line': 'Green-B',
+    'green-line': 'Green-B,Green-C,Green-D,Green-E',
     'mattapan-trolley': 'Mattapan',
   };
 
@@ -25,9 +25,9 @@ const TrainStops = () => {
     }
     fetchLineSchedule();
   }, [line]);
+ 
   
 
-  
   return (
     <div>
       <h1>MBTA Schedules</h1>
@@ -42,7 +42,7 @@ const TrainStops = () => {
 
             <Card.Text> Departure Time: {schedule.attributes.departure_time}</Card.Text>
             <Card.Text> Arrival Time: {schedule.attributes.arrival_time}</Card.Text>
-            <Card.Text> {schedule.relationships.route.data.long_name}</Card.Text>
+            <Card.Text> {schedule.relationships.route.data.id} Line</Card.Text>
           </Card.Body>
         </Card>
       ))}
