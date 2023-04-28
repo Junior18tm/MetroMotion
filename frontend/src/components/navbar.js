@@ -29,11 +29,16 @@ export default function Navbar() {
       <Nav>
        <Nav.Link href="/home">Home</Nav.Link>
        <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
+       <Nav.Link href="/addComment">Share Your Thoughts</Nav.Link>
+       <Nav.Link href="/schedule">test</Nav.Link>
+       <Nav.Link href="/viewComments">Comments</Nav.Link>
        <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
-       <Nav.Link href="/schedule">Comments</Nav.Link>
-       </Nav>
+      </Nav>
+      <Nav>
        <Nav.Link href="/login"><button class = "nav-button">Get started</button>
-       </Nav.Link>
+        </Nav.Link>
+       
+       </Nav>
      
    </Container>
  </ReactNavbar>

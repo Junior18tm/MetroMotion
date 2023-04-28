@@ -9,12 +9,12 @@ const commentSchema = new mongoose.Schema(
       label: "username",
     },
     stationName: {
-      type: Number,
+      type: String,
       required: true,
       label: "stationName",
     },
     comment: {
-      type: Number,
+      type: String,
       required: true,
       label: "comment",
     },
@@ -22,4 +22,4 @@ const commentSchema = new mongoose.Schema(
   { collection: "comments" }
 );
 
-module.exports = mongoose.model('comments', commentSchema)
+module.exports = mongoose.model('stationComments', commentSchema)
