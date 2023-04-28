@@ -1,42 +1,42 @@
   
-.schedule-windows-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    height: 80vh;
+.m-homepage__shortcuts {
+column-gap: 3.125%;
+display: grid;
+grid-template-columns: repeat(5,1fr);
+grid-template-rows: 1;
+justify-items: stretch;
+margin-top: 24px;
+  
+}
+
+  .m-homepage__shortcut {
+    background-color: #fff;
+    border: 1px solid #e9eaed;
+    border-radius: .5rem;
+    color: #1c1e23;
+    display: inline-block;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.275em;
+    padding: 1rem;
+    text-align: center;
+    }
     
-  }
-
-  .schedule-window {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-    height: 50%;
-    border: 2px solid rgb(0, 0, 0);
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-  }
-  .schedule-box {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    background-image: url('/public/Mbtrain.png');
-    background-repeat: no-repeat;
-    background-size: cover;
+  
+  .m-tabbed-nav__content {
+    
+   background-color: #f2f3f5;
+   padding: 2.5em 4em;
+   display: block;
    
-  }
-  
+}
+    
+    
+   
+   
 
-  .schedule-window:hover {
-    transform: scale(1.1);
-  }
+    
+
+ 
   
-  .schedule-window h2 {
-    font-size: 2rem;
-    margin: 0;
-  }
+  

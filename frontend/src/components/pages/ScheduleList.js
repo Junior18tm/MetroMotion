@@ -11,8 +11,7 @@ class ScheduleList extends React.Component{
 
     onSearchSubmit = async (term) => {
        
-       var stop_id = "https://api-v3.mbta.com/predictions?filter[stop]=".concat(term);
-      
+        var stop_id = "https://api-v3.mbta.com/predictions?filter[stop]=".concat(term);
         const response_prediction = await axios.get(stop_id, {});
 
         var predictions = [];                                           //Object to hold all the predictions
@@ -86,6 +85,8 @@ class ScheduleList extends React.Component{
             
         }
         this.setState({routes: predictions });
+
+
     }
 
     componentDidMount(){

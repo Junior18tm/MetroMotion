@@ -37,28 +37,7 @@ function ScheduleDisplay() {
           </Card.Body>
         </Card>
       ))}
-
-      <h2>Orange Line</h2>
-      {orangeLineSchedule.map((schedule) => (
-        <Card>
-          <Card.Body>
-<<<<<<< HEAD
-            <Card.Title>{schedule.attributes.stop_headsign}</Card.Title>
-            <Card.Text>
-              Departing from {schedule.relationships.stop.data.id} at{' '}
-              {schedule.attributes.departure_time}
-            </Card.Text>
-=======
-          <Card.Title>Depature Time</Card.Title>
-          <Card.Text>{schedule.attributes.departure_time}</Card.Text>
->>>>>>> d228801ecb772965046e2789dd4210dab8579a9b
-          </Card.Body>
-        </Card>
-      ))}
-
-      {/* Similar Card displays for other lines */}
-    </div>
-  );
-}
-
-export default ScheduleDisplay;
+</div>
+);
+      }
+export default ScheduleDisplay
