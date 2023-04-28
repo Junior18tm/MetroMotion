@@ -45,7 +45,7 @@ function CommentForm() {
 
   return (
     <form className="comment-form" onSubmit={handleSubmit}>
-      <div className="form-group">
+      <div className="form-group" >
         <label htmlFor="username">Username:</label>
         <input className="form-control" type="text" id="username" value={username} onChange={event => setUsername(event.target.value)} />
       </div>

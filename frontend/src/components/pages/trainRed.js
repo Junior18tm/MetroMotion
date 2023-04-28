@@ -4,16 +4,12 @@ import axios from 'axios';
 
 function ScheduleDisplay() {
   const [redLineSchedule, setRedLineSchedule] = useState([]);
-  const [orangeLineSchedule, setOrangeLineSchedule] = useState([]);
-  const [greenLineSchedule, setGreenLineSchedule] = useState([]);
-  const [blueLineSchedule, setBlueLineSchedule] = useState([]);
-  const [silverLineSchedule, setSilverLineSchedule] = useState([]);
-  const [purpleLineSchedule, setPurpleLineSchedule] = useState([]);
+ 
 
   useEffect(() => {
     async function fetchRedLineSchedule() {
       const result = await axios(
-        'https://api-v3.mbta.com/schedules?filter[route]=1&include=stop',
+        'https://api-v3.mbta.com/predictions?filter[route]=Orange',
       );
       setRedLineSchedule(result.data.data);
     }
@@ -29,7 +25,7 @@ function ScheduleDisplay() {
       {redLineSchedule.map((schedule) => (
         <Card>
           <Card.Body>
-            <Card.Title>{schedule.attributes.stop_headsign}</Card.Title>
+            <Card.Title>{schedule.attributes.type}</Card.Title>
             <Card.Text>
               Departing from {schedule.attributes.stop_headsign} at{' '}
               {schedule.attributes.departure_time}
@@ -37,7 +33,28 @@ function ScheduleDisplay() {
           </Card.Body>
         </Card>
       ))}
-</div>
-);
-      }
-export default ScheduleDisplay
+
+      <h2>Orange Line</h2>
+      {orangeLineSchedule.map((schedule) => (
+        <Card>
+          <Card.Body>
+<<<<<<< HEAD
+            <Card.Title>{schedule.attributes.stop_headsign}</Card.Title>
+            <Card.Text>
+              Departing from {schedule.relationships.stop.data.id} at{' '}
+              {schedule.attributes.departure_time}
+            </Card.Text>
+=======
+          <Card.Title>Depature Time</Card.Title>
+          <Card.Text>{schedule.attributes.departure_time}</Card.Text>
+>>>>>>> d228801ecb772965046e2789dd4210dab8579a9b
+          </Card.Body>
+        </Card>
+      ))}
+
+      {/* Similar Card displays for other lines */}
+    </div>
+  );
+}
+
+export default ScheduleDisplay;

@@ -27,10 +27,6 @@ app.use('/user', getUserByIdRoute)
 app.use('/user', editUser)
 app.use('/user', deleteUser)
 app.use('/comment', getAllCommentsRoute)
-<<<<<<< HEAD
-
-=======
->>>>>>> d228801ecb772965046e2789dd4210dab8579a9b
 app.use('/rating', getAllRatings)
 
 app.listen(SERVER_PORT, (req, res) => {

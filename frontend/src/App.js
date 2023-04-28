@@ -1,7 +1,8 @@
 import React from "react";
 import MbtaAlertsPage from "./components/pages/mbtaAlerts";
 // We use Route in order to define the different routes of our application
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams} from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 
 // We import all the components we need in our app
 import Navbar from "./components/navbar";
@@ -14,10 +15,13 @@ import { createContext, useState, useEffect } from "react";
 import getUserInfo from "./utilities/decodeJwt";
 import TrainLines from "./components/pages/trainLines";
 import RedLine from "./components/pages/trainRed";
+import AddCommmentPage from "./components/pages/addCommentPage";
+import CommentList from "./components/pages/viewCommentsPage";
+import SchedulePage from "./components/pages/ScheduleList";
+import TrainStops from "./components/pages/TrainStops";
 
 export const UserContext = createContext();
-//test change
-//test again
+
 const App = () => {
   const [user, setUser] = useState();
 
@@ -37,11 +41,14 @@ const App = () => {
           <Route exact path="/mbtaAlerts" element={<MbtaAlertsPage />} />
           <Route path="/privateUserProfile" element={<PrivateUserProfile />} />
           <Route exact path="/trainSchedule" element={<TrainLines />} />
-          <Route exact path="/red-line" element={<RedLine/>} />
+          <Route path="/trainSchedule/:line" element={<TrainStops/>} />
+          <Route path="/red-line" element={<RedLine/>} />
           <Route path="/addComment" element={<AddCommmentPage />} />
           <Route path="/viewComments" element={<CommentList />} />
           <Route path="/schedule" element={<SchedulePage />} />
-        </Routes>
+      </Routes>
+    
+
       </UserContext.Provider>
     </>
   );

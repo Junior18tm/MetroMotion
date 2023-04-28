@@ -11,7 +11,8 @@ class ScheduleList extends React.Component{
 
     onSearchSubmit = async (term) => {
        
-        var stop_id = "https://api-v3.mbta.com/predictions?filter[stop]=".concat(term);
+       var stop_id = "https://api-v3.mbta.com/predictions?filter[stop]=".concat(term);
+      
         const response_prediction = await axios.get(stop_id, {});
 
         var predictions = [];                                           //Object to hold all the predictions
@@ -107,7 +108,7 @@ class ScheduleList extends React.Component{
         ).then(function(value) {
             var count = Object.keys(value.data.data).length;
 
-            for(var i =0; i<count; i++){
+            for(var i =0; i< 5; i++){
                 temp_obj = {
                     name : value.data.data[i].attributes.name,
                     id : value.data.data[i].id
@@ -141,7 +142,7 @@ class ScheduleList extends React.Component{
         return <div className="ui container" style={{ marginTop: '10px'}}> 
 
                 <div class="ui divider"></div>
-                <div style={{ marginLeft: '40%'}} class="ui mini statistic">
+                <div style={{ marginLeft: '70%'}} class="ui mini statistic">
                     <div class="label">Time</div>
                     <div class="value">{this.state.curTime}</div>
                 </div>
@@ -155,8 +156,7 @@ class ScheduleList extends React.Component{
                 <div>
                     <h3 className="ui icon center aligned header">
                         <i aria-hidden="true" className="question circle icon"></i>
-                        <div className="content">Find a station in the below chart and use the corresponding Stop ID to search:</div>
-                        <div className="content">(To search for North Station, use the id place-north)</div>
+                        
                     </h3>
                 </div>
                 <br />
