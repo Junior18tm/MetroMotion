@@ -36,7 +36,7 @@ const HomePage = () => {
                 <h2>Bus Schedules</h2>
                 </div>
                
-                <div className="schedule-window" onClick={() => handleClick('/trainSchedule')}>
+                <div className="schedule-window" onClick={() => handleClick('/myfavorites')}>
                 <h2>My Favorites</h2>
                 </div>
     
