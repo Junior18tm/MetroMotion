@@ -7,7 +7,7 @@ const TrainLines = () => {
      return(
        <div id ="body">
     <div className="train-schedule-container">
-     <Link to="/red-line" className="train-schedule-box red-line-box">
+     <Link to="/trainSchedule/red-line" className="train-schedule-box red-line-box">
         Red Line
       </Link>
       <Link to="/trainSchedule/orange-line" className="train-schedule-box orange-line-box">
