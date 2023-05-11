@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+   
   }
   
   .navbar-brand img {
@@ -26,21 +27,7 @@
   .nav-link:hover {
     color: #f8f9fa;
   }
-  .nav-button {
-    background-color:mediumblue;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .nav-button:hover {
-    background-color: navy;
-  }
-  .nav-button {
-    border-radius: 12px;
-  }
+
   @media (max-width: 900px) {
     .navbar-nav {
       flex-direction: column;

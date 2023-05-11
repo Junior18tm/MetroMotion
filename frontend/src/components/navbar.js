@@ -34,11 +34,6 @@ export default function Navbar() {
        <Nav.Link href="/schedule">test</Nav.Link>
        <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
       </Nav>
-      <Nav>
-       <Nav.Link href="/login"><button class = "nav-button">Get started</button>
-        </Nav.Link>
-       
-       </Nav>
      
    </Container>
  </ReactNavbar>

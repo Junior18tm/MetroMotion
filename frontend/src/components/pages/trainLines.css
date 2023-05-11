@@ -6,6 +6,7 @@
   }
   
   .train-schedule-box {
+    margin-top: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,6 +15,8 @@
     color: white;
     text-decoration: none;
     border-radius: 10px;
+    height: 150px;
+    width: 250px;
     transition: background-color 0.2s ease-in-out;
   }
   
@@ -63,7 +66,9 @@
   #body {
     background-image: url('/public/Mbtrain.png');
     background-repeat: no-repeat;
-    background-size: 100%;
-    padding-bottom: 550px; 
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    
   }
   

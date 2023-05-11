@@ -1,35 +1,33 @@
-  
 .m-homepage__shortcuts {
-column-gap: 3.125%;
-display: grid;
-grid-template-columns: repeat(5,1fr);
-grid-template-rows: 1;
-justify-items: stretch;
-margin-top: 24px;
-  
+  display: inline-flex;
+  justify-content: center; /* Adjust alignment as needed */
+  align-items: center;
+  margin-top: 24px;
 }
 
-  .m-homepage__shortcut {
-    background-color: #fff;
-    border: 1px solid #e9eaed;
-    border-radius: .5rem;
-    color: #1c1e23;
-    display: inline-block;
-    font-size: 1.125rem;
-    font-weight: 700;
-    line-height: 1.275em;
-    padding: 1rem;
-    text-align: center;
-    }
+.m-homepage__shortcut {
+  flex: 1;
+  background-color: #fff;
+  border: 1px solid #e9eaed;
+  border-radius: .5rem;
+  color: #1c1e23;
+  margin: 0 10px; /* Add margin to create spacing between boxes */
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 200px; /* Adjust the height as needed */
+  width: 200px;
+}
+
+
+
+
+
     
   
-  .m-tabbed-nav__content {
-    
-   background-color: #f2f3f5;
-   padding: 2.5em 4em;
-   display: block;
-   
-}
+  
     
     
    
