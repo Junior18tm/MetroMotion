@@ -22,6 +22,9 @@ GET http://localhost:8081/user/getAll
 Content-Type: application/json
 
 ###
+###
+GET http://localhost:8081/comment/getAll
+Content-Type: application/json
 
 POST http://localhost:8081/user/editUser
 Content-Type: application/json 
