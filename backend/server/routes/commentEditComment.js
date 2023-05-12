@@ -3,7 +3,7 @@ const router = express.Router();
 const commentModel = require('../models/commentModel')
 
 router.post('/editComment', async (req, res) => {
-    const { _id, username, stationName, comment } = req.body;
+    const { _id, username, line, stationName, comment } = req.body;
 
     try {
       await commentModel.findByIdAndUpdate(_id, {

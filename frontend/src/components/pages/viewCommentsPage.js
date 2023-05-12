@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Modal, Form } from 'react-bootstrap';
+import Card from 'react-bootstrap/Card';
+import getUserInfo from '../../utilities/decodeJwt';
 
 
 const CommentList = () => {
@@ -37,25 +39,47 @@ const CommentList = () => {
   };
 
 
-  const handleCommentClick = (comment) => {
-    setSelectedComment(comment);
-    setEditedComment(comment.comment);
-    setShowModal(true);
-  };
+ const handleCommentClick = (comment) => {
+  setSelectedComment(comment);
+  setEditedComment(comment.comment);
+  setShowModal(true);
+};
 
 
-  const renderComments = () => {
-    return comments.map((comment) => {
-      return (
-        <div key={comment._id} onClick={() => handleCommentClick(comment)} className="my-3">
-          <h4 className="text-primary">{comment.username}</h4>
-          <p>{comment.comment}</p>
-          <small className="text-muted">{comment.stationName}</small>
-          <hr />
-        </div>
-      );
-    });
-  };
+
+const renderComments = () => {
+  // Get the currently logged in user from the JWT
+  const currentUser = getUserInfo().username;
+
+  return comments.map((comment) => {
+    return (
+      <Card className="mb-4" key={comment._id}>
+        <Card.Body>
+          <Card.Title>
+            {comment.username}
+            {comment.username === currentUser && (
+              <Button 
+                variant="primary" 
+                size="sm" 
+                style={{ position: 'absolute', top: '10px', right: '10px' }}
+                onClick={() => handleCommentClick(comment)}
+              >
+                Edit
+              </Button>
+            )}
+          </Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">
+            <strong>Subway Line:</strong> {comment.line}<br />
+            <strong>Stop:</strong> {comment.stationName}
+          </Card.Subtitle>
+          <Card.Text className="mt-4"> <strong>Comment: </strong>
+            {comment.comment}
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    );
+  });
+};
 
 
   const handleCloseModal = () => {

@@ -5,12 +5,13 @@ const commentModel = require('../models/commentModel')
 
 router.post('/add', async (req, res) => {
  
-    const { username, stationName, comment } = req.body
+    const { username, line, stationName, comment } = req.body
 
 
      //creates a new comment
     const createComment = new commentModel({
         username: username,
+        line: line,
         stationName: stationName,
         comment: comment,
     });

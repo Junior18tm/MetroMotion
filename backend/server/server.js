@@ -9,7 +9,8 @@ const dbConnection = require('./config/db.config')
 const editUser = require('./routes/userEditUser')
 const deleteUser = require('./routes/userDeleteAll')
 const getAllCommentsRoute = require('./routes/commentGetAllComments')
-
+const createComment = require('./routes/commentCreateComment')
+const editComment = require('./routes/commentEditComment')
 const getAllRatings = require('./routes/ratingGetAllRatings')
 const addFavorites = require('./routes/favoriteAddFavorite');
 
@@ -26,6 +27,9 @@ app.use('/user', getUserByIdRoute)
 app.use('/user', editUser)
 app.use('/user', deleteUser)
 app.use('/comment', getAllCommentsRoute)
+app.use('/comment', createComment)
+app.use('/comment', editComment)
+
 app.use('/rating', getAllRatings)
 app.use('/users', addFavorites)
 

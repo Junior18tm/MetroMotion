@@ -1,16 +1,39 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import getUserInfo from '../../utilities/decodeJwt';
 import './addCommentPage.css';
 
+
 function CommentForm() {
-  const [username, setUsername] = useState('');
+  const user = getUserInfo();
+  const [username, setUsername] = useState(user?.username || '');
+  const [line, setLine] = useState('Red'); 
+  const [stations, setStations] = useState([]);
   const [stationName, setStationName] = useState('');
   const [comment, setComment] = useState('');
   const [submitted, setSubmitted] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
   const handleClick = (e) => {
-    return navigate(e)
-}
+    return navigate(e);
+  }
+
+  useEffect(() => {
+    setUsername(user?.username || '');
+  }, [user]);
+
+  useEffect(() => {
+    axios.get(`https://api-v3.mbta.com/stops?filter[route]=${line}`)
+      .then(response => {
+        const stopsData = response.data.data;
+        setStations(stopsData);
+        if (stopsData.length > 0) {
+          setStationName(stopsData[0].attributes.name);
+        }
+      })
+      .catch(error => console.error('Error fetching stations:', error));
+  }, [line]);
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -19,7 +42,7 @@ function CommentForm() {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ username, stationName, comment })
+      body: JSON.stringify({ username, line, stationName, comment })
     })
       .then(response => {
         if (response.ok) {
@@ -37,21 +60,35 @@ function CommentForm() {
   if (submitted) {
     return (
       <div className="comment-submitted">
-        <h2>Comment Submitted, Thank you!!.</h2>
-        <button className="btn btn-primary" onClick={() => handleClick('/home')}>Go Back Home</button>
+        <h2>Comment Submitted, Thank you!.</h2>
+        <button className="btn btn-primary" onClick={() => handleClick('/viewComments')}>Check other comments</button>
       </div>
     );
   }
 
   return (
     <form className="comment-form" onSubmit={handleSubmit}>
-      <div className="form-group" >
+      <div className="form-group">
         <label htmlFor="username">Username:</label>
-        <input className="form-control" type="text" id="username" value={username} onChange={event => setUsername(event.target.value)} />
+        <input className="form-control" type="text" id="username" value={username} onChange={event => setUsername(event.target.value)} disabled />
+      </div>
+      <div className="form-group">
+        <label htmlFor="line">Line:</label>
+        <select className="form-control" id="line" value={line} onChange={event => setLine(event.target.value)}>
+          <option value="Red">Red Line</option>
+          <option value="Blue">Blue Line</option>
+          <option value="Orange">Orange Line</option>
+          <option value="Green-B,Green-C,Green-D,Green-E">Green Line</option>
+          <option value="Mattapan">Mattapan Trolley</option>
+        </select>
       </div>
       <div className="form-group">
         <label htmlFor="stationName">Station Name:</label>
-        <input className="form-control" type="text" id="stationName" value={stationName} onChange={event => setStationName(event.target.value)} />
+        <select className="form-control" id="stationName" value={stationName} onChange={event => setStationName(event.target.value)}>
+          {stations.map(station => (
+            <option key={station.id} value={station.attributes.name}>{station.attributes.name}</option>
+          ))}
+        </select>
       </div>
       <div className="form-group">
         <label htmlFor="comment">Comment:</label>
@@ -60,6 +97,8 @@ function CommentForm() {
       <button className="btn btn-primary" type="submit">Submit</button>
     </form>
   );
+  
+  
 }
 
 export default CommentForm;
