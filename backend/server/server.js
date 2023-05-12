@@ -27,7 +27,7 @@ app.use('/user', editUser)
 app.use('/user', deleteUser)
 app.use('/comment', getAllCommentsRoute)
 app.use('/rating', getAllRatings)
-app.use('/users/:userId/favorites', addFavorites)
+app.use('/users', addFavorites)
 
 
 app.listen(SERVER_PORT, (req, res) => {

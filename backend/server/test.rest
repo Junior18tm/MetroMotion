@@ -20,6 +20,9 @@ Content-Type: application/json
 ###
 GET http://localhost:8081/user/getAll
 Content-Type: application/json
+###
+GET http://localhost:8081/comment/getAll
+Content-Type: application/json
 
 ###
 ###
@@ -63,4 +66,16 @@ Content-Type: application/json
    "username":"junior18",
    "stationName":"northstation",
    "comment":"junior t."
+}
+###
+POST http://localhost:8081/users/507f1f77bcf86cd799439011/favorites
+Content-Type: application/json
+{
+  "stopName": "Test Stop",
+  "line": "Test Line",
+  "stopId": "teststop1",
+  "arrivalTime": "2023-05-15T15:30:00Z",
+  "lineColor": "#FF0000",
+  "lineName": "Test Line",
+  "destination": "Test Destination"
 }

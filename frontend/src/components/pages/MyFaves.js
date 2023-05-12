@@ -4,41 +4,51 @@ import TrainCard from './TrainCard';
 import getUserInfo from '../../utilities/decodeJwt';
 
 const MyFaves = () => {
-  const [favoriteStops, setFavoriteStops] = useState([]);
-  const user = getUserInfo();
-  const userId = user?.id; // Access the user ID
+    const [favorites, setFavorites] = useState([]);
+    const user = getUserInfo();
+    const userId = user?.id;
 
-  useEffect(() => {
-    if (userId) {
-      // Fetch favorite stops for the user using the API
-      axios
-        .get(`/api/users/${userId}/favorites`)
-        .then((response) => {
-          setFavoriteStops(response.data);
-        })
-        .catch((error) => {
-          console.error('Error fetching favorite stops:', error);
-        });
-    }
-  }, [userId]);
+    useEffect(() => {
+        if (userId) {
+            axios.get(`http://localhost:8081/users/${userId}/favorites`)
+                .then((response) => {
+                    setFavorites(response.data);
+                })
+                .catch((error) => {
+                    console.error('Error fetching favorites:', error);
+                });
+        }
+    }, [userId]);
 
-  return (
-    <div>
-      <h1>My Favorite Stops</h1>
-      {favoriteStops.map((stop) => (
-        <TrainCard
-          key={stop.id}
-          stopName={stop.stopName}
-          line={stop.line}
-          stopId={stop.stopId}
-          arrivalTime={stop.arrivalTime}
-          lineColor={stop.lineColor}
-          lineName={stop.lineName}
-          destination={stop.destination}
-        />
-      ))}
-    </div>
+    return (
+      <div>
+          <h1 style={{ textAlign: 'center' }}>My Favorites</h1>
+          {user ? (
+              <div style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  justifyContent: 'space-around'
+              }}>
+                  {favorites.map((favorite, index) => (
+                      <div style={{flex: '1 0 30%', margin: '1rem'}} key={index}>
+                          <TrainCard
+                              stopName={favorite.stopName}
+                              line={favorite.line}
+                              stopId={favorite.stopId}
+                              arrivalTime={favorite.arrivalTime}
+                              lineColor={favorite.lineColor}
+                              lineName={favorite.lineName}
+                              destination={favorite.destination}
+                          />
+                      </div>
+                  ))}
+              </div>
+          ) : (
+              <p>Please log in to see your favorite train stops.</p>
+          )}
+      </div>
   );
+  
 };
 
 export default MyFaves;

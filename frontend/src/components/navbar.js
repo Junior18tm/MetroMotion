@@ -31,7 +31,7 @@ export default function Navbar() {
        <Nav.Link href="/mbtaAlerts">MBTA Alerts</Nav.Link>
        <Nav.Link href="/addComment">Share Your Thoughts</Nav.Link>
        <Nav.Link href="/viewComments">Comments</Nav.Link>
-       <Nav.Link href="/schedule">test</Nav.Link>
+       <Nav.Link href="/myfavorites">My Favorites</Nav.Link>
        <Nav.Link href="/privateUserProfile">Profile</Nav.Link>
       </Nav>
      

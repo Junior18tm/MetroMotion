@@ -79,8 +79,8 @@ const TrainStops = () => {
   
   return (
     <div>
-      <h1>MBTA Schedules</h1>
-      <h2>{lineDetails.attributes?.long_name}</h2>
+      <h1 style={{ textAlign: 'center' }}>MBTA Subway Schedules</h1>
+      <h2 style={{ textAlign: 'center' }}>{lineDetails.attributes?.long_name}</h2>
       <button
        onClick={() => navigate(-1)}style={{ backgroundColor:`#${lineDetails.attributes?.color}`, color: 'white',position: 'absolute', width : '10rem',
       top: '120px', right: '50px',  border: 'black', padding: '10px',borderRadius: '5px', }}> ⇦ Previous Page</button>

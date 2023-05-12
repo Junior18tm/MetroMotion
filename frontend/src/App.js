@@ -16,7 +16,6 @@ import getUserInfo from "./utilities/decodeJwt";
 import TrainLines from "./components/pages/trainLines";
 import AddCommmentPage from "./components/pages/addCommentPage";
 import CommentList from "./components/pages/viewCommentsPage";
-import SchedulePage from "./components/pages/ScheduleList";
 import TrainStops from "./components/pages/TrainStops";
 import ScheduledTrains from './components/pages/ScheduledTrains';
 import MyFaves from "./components/pages/MyFaves";
@@ -48,7 +47,7 @@ const App = () => {
           <Route path="/myfavorites" element={<MyFaves/>}/>
           <Route path="/addComment" element={<AddCommmentPage />} />
           <Route path="/viewComments" element={<CommentList />} />
-          <Route path="/schedule" element={<SchedulePage />} />
+        
       </Routes>
     
 

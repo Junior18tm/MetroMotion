@@ -23,11 +23,13 @@ const FavoriteSchema = new Schema({
     type: String 
   },
   lineName: { 
-    type: String,
-    required: true },
+    type: String
+  },
   destination: { 
     type: String, 
-    required: true }
+    required: true 
+  }
 });
+
 
 module.exports = mongoose.model('Favorite', FavoriteSchema);
